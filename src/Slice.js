@@ -10,10 +10,17 @@ export const mySlice  = createSlice({
     {
         // the reducer function can take two parameters : state and action
         updateData : (state,action)=>{
-            console.log('Reducer Function Called')
+            console.log('Reducer Function Called');
+            const newState = [...state]
+            newState[0].data = "New Message1";
+            newState[1].data = "New Message2";
+            state = newState; 
+        },
+        function2 : (state,action)=>{
+            console.log('Second Reducer Function');
         }
     }
 });
 
-export const {updateData} = mySlice.actions; // Accessing the auto generated Actions
+export const {updateData,function2} = mySlice.actions; // Accessing the auto generated Actions
 export default mySlice.reducer;
